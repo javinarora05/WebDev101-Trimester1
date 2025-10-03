@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Card</title>
+    <style>
+    body {
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f4f8;
+}
+
+.card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 500px;
+    margin:auto;
+    padding: 40px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.12);
+}
+
+.profile--image {
+    flex-shrink: 0; 
+}
+
+.profile--image img {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #eef4f8; 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.profile--heading {
+    grid-area: heading; 
+    text-align: center;
+    margin-top: 15px;
+}
+
+.profile--content {
+    margin-left: 50px; 
+    text-align: left;
+}
+
+.profile--content h2 {
+    font-size: 2.0rem;
+    font-weight: bold;
+    margin: 0;
+    color: #2c3e50;
+}
+
+.profile-content p {
+    font-size: 1rem;
+    color: #7f8c8d;
+    line-height: 1.6;
+    margin-top: 10px;
+}
+
+.buttons--container {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.butn {
+    padding: 14px 28px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.butn:hover {
+    color:#F2F2F2;
+    background-color:#2B2B48;
+    transition: background-color 0.15s,
+    color 0.15s;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 640px) {
+    .card {
+        flex-direction: column;
+        text-align: center;
+        width: 70vw;
+        padding: 30px 20px;
+    }
+
+    .profile--image img {
+         width: 120px;
+        height: 120px;
+        margin-bottom: 30px;
+    }
+
+    .profile--content {
+        margin-left: 5px;
+    }
+
+    .profile--content h2 {
+        font-size: 1.8rem;
+    }
+
+    .profile--content p {
+        font-size: 0.9rem;
+    }
+
+    .buttons--container {
+        flex-direction: column;
+        gap: 12px;
+        width: 100%;
+        margin-top: 25px;
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="profile--image">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALAAAACUCAMAAAAEVFNMAAAANlBMVEVRUVEAAABUVFRNTU1FRUVKSko+Pj4rKysSEhIxMTE6OjoLCwsPDw8dHR02NjZCQkIkJCQYGBgmbihZAAAENUlEQVR4nO2cSRKjMAxFQbaZzHj/yzYOGegE0jYS304Xb5XlL5WQZA3JsouLi4uLi4uLCw7k+PiZMKaox6lqrW3bqit7rZzw2KK2IaWbss3f6fpBZQlKJtOPn2rvmkudlmSarVtXO2pvtOOQlGJVflO7MCVjZVLNV+s+KXUSismMXnJnqiaBgEGF9dXrjKxiK1Z1gNzceXJUxaS83eFBFVMxZcF6Z8VDPEcOt6/DxgvJh/TOiiN5BXlki20qE0MxNUf15vkYQ+8QEn/fKfFpWnUMvXleoAVTYMJ4p0XrNTy9eV5jTUwHI9oLO0D1Dly97rtDwjbw7MUaJ5cX0h7UOMHZ4Ry3xiqYXrX3PA6jQQUKTlJe08EE85LcCwPSmwnpRfkEaSnBJUgws4x40WHiBD8tP0A9SCcpwRZTZBq/xpQPkK+OtEzacEBqTJlCYgFSsYU101IQ3PycYDG9vycY0p+QdAmM4J/76H4uDgtmOlBz4sdSs9yDI28xre3jfeF3JswbSaLtswBrE0sJRjUExZwYNeugXkYvrkfMbg4vAFvEMs9Q4NxZpJxAjpKYE5kF5FxGoiYecd1Wp5jdmwBPnKlgGxgp18ENFPBxM7Mq7vHjcdZ3F2M6zpnMxNmjoeNvO/hofEEdjW2w8dEbpI99eOC5+Bp9pKZATkDfOfLkjxDQ/lIcmEDaWP77xGcT90UXf42YQjJI/F1RB6nS79ubZvOmIHim8Cjoqz4J8y6Qav4h2dbABRQfKBvGfcdonXXTse8CzWYep0/RVVfrBDbJN6HMFH05TveqyFbdWDfJHBdsM4tTymg9DIPWJuG7njU3iZSe0/4n3C/SfsC69LifU8Y4582SvqajWaZu6m5dbdqu7Aetbp9dUsqJbld/25XxrDqhwOZ07OWLdeoYXepIQPQtcmmvUs12RQoReTau/8PZlT9xvZlUH9YmrqIe1BEN4Q/QKuKTYzjYRemjqCVzfJ2xg27rL3LJ50m0i63BXx6xt0UnbDc7tHeyBc6T5+AgsisKCxdiO1UjyC3Elp1B97dyeiFzA7ll8kXx2Z1BYb3nK5bWu8xvz9Pcy60wPmnPixWSK5crTkt6/JvKHc665RBcuHzjpIthsW3AT84Y20luZX8iHdxI8FxqkxNO9cX2WbeRXkaQ2gTcR3a6L7lDvoOVrY7FztH2GQUF8xeofJB0itNSxppRzCnEa8odpJ6lkkcQX6mk9uFBBhbL0EbsAPSfiBRB5+eMFyJXzoc3vQ4gUVJgYvADgfUl/ppwCPzHx8ll5QcFWzAspi1wy0wS2c0PgfnZnfSy/wI3eYA9Yo5sPMFwj+CeU4FjhIPlE8i0/KDjGFju9tMfTpNb7s9mQuBs64qdfobAuCWXO64NIbz9Sk8iuHDuAtsdP7nKrUQNRdHUdV1ZdKKztq3KvikKbYxSW7XbH9EhNvMv+88jAAAAAElFTkSuQmCC" alt="Profile Picture">
+        </div>
+        <div class="profile--content">
+            <div class="profile--heading">
+                <h2>Javin Arora</h2>
+                </div>
+            <p>Web Designer,Beginner in java and python, Binge watching TV series and high coffee addiction!</p>
+            <div class="buttons--container">
+                <a href="#" class="butn">Contact</a>
+                <a href="http://127.0.0.1:5500/Projects/1234.html" class="butn" target="_blank">Portfolio</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
