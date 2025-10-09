@@ -1,2 +1,2 @@
-# WebDev101-Trimester1
-webdev activities for trimester 1
+# WebDev101-Trimester1 
+https://javinarora05.github.io/WebDev101-Trimester1/
